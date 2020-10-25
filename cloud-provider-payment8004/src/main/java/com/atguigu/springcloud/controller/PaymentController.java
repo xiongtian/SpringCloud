@@ -13,7 +13,7 @@ import java.util.UUID;
 @Slf4j
 public class PaymentController {
 
-    @Value("${server.poet}")
+    @Value("${server.port}")
     private String serverPort;
 
     @RequestMapping(value = "/payment/zk")
