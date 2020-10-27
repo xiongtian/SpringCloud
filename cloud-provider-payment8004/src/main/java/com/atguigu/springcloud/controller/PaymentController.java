@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
+/**
+ * @author Administrator
+ */
 @RestController
 @Slf4j
 public class PaymentController {
@@ -17,7 +20,7 @@ public class PaymentController {
     private String serverPort;
 
     @RequestMapping(value = "/payment/zk")
-    public String paymentzk(){
+    public String paymentZk(){
         return "springcloud with zookeeper: "+serverPort+"\t"+ UUID.randomUUID().toString();
     }
 }

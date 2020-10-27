@@ -3,15 +3,24 @@ package com.atguigu.springcloud.entities;
  *  通用返回结果集
  * */
 
+/**
+ * @author Administrator
+ */
 public class CommonResult<T> {
 
-    // 编码
+    /**
+     * 编码
+     */
     private Integer code;
 
-    // 信息
+    /**
+     *信息
+     */
     private String message;
 
-    // 数据
+    /**
+     * 数据
+     */
     private T data;
 
 
