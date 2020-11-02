@@ -7,16 +7,34 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:xiongtian/springcloud-config.git  # Github上面git仓库的名字
+          # uri: git@github.com:xiongtian/springcloud-config.git  # Github上面git仓库的名字 ssh的方式
+          uri: https://github.com/xiongtian/springcloud-config.git  # http方式
           #### 搜索目录
           search-paths:
             - springcloud-config
+          # 一下三个是http方式需要的，ssh的方式连接则不需要
+          force-pull: true
+          username: xiongtian
+          password: xt732734
       #### 读取分支
       lable: master
 
+# RabbitMQ相关配置
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
 
 # 服务注册到eureka地址
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+# Rabbitmq相关配置，暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
