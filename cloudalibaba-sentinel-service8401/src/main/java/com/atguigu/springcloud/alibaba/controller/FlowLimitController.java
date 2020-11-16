@@ -17,11 +17,15 @@ public class FlowLimitController {
 
     @GetMapping("/testA")
     public String testA(){
+        // 演示流控规则按照线程数的情况
+        //try { TimeUnit.MILLISECONDS.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
         return "------testA";
     }
 
     @GetMapping("/testB")
     public String testB(){
+        // 流控效果 --->  排队等待
+        log.info(Thread.currentThread().getName()+"\t"+".... /testB");
         return "------testB";
     }
 
