@@ -9,27 +9,35 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-provider-payment8001</artifactId>
-
-
+    <artifactId>seata-account-service2003</artifactId>
     <dependencies>
-        <!--包含了sleuth+zipkin-->
+        <!--SpringCloud alibaba nacos-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--seata-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.seata</groupId>
+                    <artifactId>seata-all</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-all</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <!--openfeign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <!-- Server Eureka Client-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <!--引入自己定义的api调用包，可以使用Payment支付Entity-->
-        <dependency>
-            <groupId>com.atguigu.springcloud</groupId>
-            <artifactId>cloud-api-commons</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+        <!--web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -37,16 +45,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!--mybatis-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.10</version>
         </dependency>
         <!--mysql -connector- java-->
         <dependency>
@@ -57,6 +55,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!--mybatis-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
         <!--热部署-->
         <dependency>
