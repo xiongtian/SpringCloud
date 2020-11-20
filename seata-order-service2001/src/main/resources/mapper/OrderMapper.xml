@@ -14,12 +14,12 @@
     </resultMap>
     
     <insert id="create">
-        INSERT INTO `seata_order`.`t_order`(`id`, `user_id`, `product_id`, `count`, `money`, `status`)
+        INSERT INTO t_order(`id`, `user_id`, `product_id`, `count`, `money`, `status`)
         VALUES (null, #{userId}, #{productId},#{count},#{money},0);
     </insert>
 
     <update id="update">
-        update `seata_order`.`t_order` set status = 1 where user_id=#{userId} and status = #{status}
+        update t_order set status = 1 where user_id=#{userId} and status = #{status}
     </update>
 
 </mapper>
