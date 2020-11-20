@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author xiongtian
@@ -24,13 +25,15 @@ public class AccountServiceImpl implements AccountService {
 
     /**
      * 扣减账户余额
+     *
      * @param userId 用户id
-     * @param money 金额
+     * @param money  金额
      */
     @Override
     public void decrease(Long userId, BigDecimal money) {
         LOGGER.info("------>account-service中扣减账户余额开始！ ");
         // 模拟超时异常，全局事务回滚
+        //try { TimeUnit.SECONDS.sleep(20); } catch (InterruptedException e) { e.printStackTrace(); }
         accountDao.decrease(userId, money);
         LOGGER.info("------>account-service中扣减账户余额结束！ ");
 
